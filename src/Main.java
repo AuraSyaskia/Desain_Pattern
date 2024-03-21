@@ -11,71 +11,84 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
 
+            interface Quackable {
+                void quack();
+            }
 
+            interface Flyable {
+                void fly();
+            }
 
             abstract class Duck {
-                void quack(){
-                    System.out.println("Qwek Qwek");
-
-                }
-                void swim(){
-                    System.out.println("Berenang");
-
-                }
                 abstract void display();
 
-                void fly(){
+                void swim() {
+                    System.out.println("Berenang");
+                }
+            }
+
+            class MallardDuck extends Duck implements Quackable, Flyable {
+                @Override
+                public void quack() {
+                    System.out.println("Qwek Qwek");
+                }
+
+                public void fly() {
                     System.out.println("Terbang");
                 }
-            }
 
-            class MallardDuck extends Duck {
                 @Override
-                void display(){
-                    System.out.println("Tampilan MallardDuck");
+                void display() {
+                    System.out.println("Tampilan MalladrDuck");
                 }
             }
 
-            class RubberdDuck extends Duck {
+            class ReaheadDuck extends Duck implements Quackable, Flyable {
                 @Override
-                void display(){
+                public void quack() {
+                    System.out.println("Qwek Qwek");
+                }
+
+                public void fly() {
+                    System.out.println("Terbang");
+                }
+
+                @Override
+                void display() {
                     System.out.println("Tampilan RedHeadDuck");
                 }
             }
 
-            class RubberDuck extends Duck {
+            class RubberDuck extends Duck implements Quackable {
                 @Override
-                void display(){
-                    System.out.println("Bunyinya squeek, bukan qwak");
+                public void quack() {
+                    System.out.println("Squeak");
                 }
 
                 @Override
-                void fly(){
-                    //Tidak ada implementasi, karena bebek mainan t
+                void display() {
+                    System.out.println("Tampilan RubberDuck");
                 }
             }
 
             class WoodenDuck extends Duck {
                 @Override
-                void display(){
+                void display() {
                     System.out.println("Tampilan WoodenDuck");
-                }
-                @Override
-                void quack(){
-                    //Tidak ada implementasi, karena bebek mainan t
-
-                }
-                @Override
-                void swim(){
-                    System.out.println("Mengambang");
-                }
-
-                @Override
-                void fly(){
-                    //Tidak ada implementasi, karena bebek mainan t
                 }
             }
 
+            class ToyDuck extends Duck implements Flyable {
+                public void fly() {
+                    System.out.println("Terbang seperti mainan");
+                }
+
+
+                @Override
+                void display() {
+
+                }
+            }
         }
     }
 }
